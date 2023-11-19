@@ -14,6 +14,7 @@ class ToOneHot(object):
 		if self.n_classes is None:
 			self.n_classes = len(np.unique(a))
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
+		print(self.__all_idx(a, axis=2))
 		out[self.__all_idx(a, axis=2)] = 1
 		return out
 

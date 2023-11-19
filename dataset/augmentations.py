@@ -18,12 +18,12 @@ class ToOneHot(object):
 		print('Done1')
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
 		b = self.__all_idx(a, axis=2)
-		print(b)
-		for c in b:
-			print(len(b))
-		print(np.ndim(b))
+		print(out)
+		print(out.shape)
 		print('Done2')
-		out[self.__all_idx(a, axis=2)] = 1
+		print(b)
+		print('Done3')
+		out[b] = 1
 		return out
 
 	def __all_idx(self, idx, axis):

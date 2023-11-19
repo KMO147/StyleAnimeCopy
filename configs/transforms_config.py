@@ -1,6 +1,6 @@
 from abc import abstractmethod
 import torchvision.transforms as transforms
-import datasets.augmentations
+from datasets import augmentations
 
 
 class TransformsConfig(object):

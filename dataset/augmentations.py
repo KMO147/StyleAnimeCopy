@@ -14,9 +14,13 @@ class ToOneHot(object):
 		if self.n_classes is None:
 			self.n_classes = len(np.unique(a))
 		print(a)
+		print(a.shape)
+		print('Done1')
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
-		print(self.__all_idx(a, axis=2))
-		print('Done')
+		b = np.array(self.__all_idx(a, axis=2))
+		print(b)
+		print(b.shape)
+		print('Done2')
 		out[self.__all_idx(a, axis=2)] = 1
 		return out
 

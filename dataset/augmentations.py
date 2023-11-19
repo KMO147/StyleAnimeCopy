@@ -17,9 +17,11 @@ class ToOneHot(object):
 		print(a.shape)
 		print('Done1')
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
-		b = np.asarray(self.__all_idx(a, axis=2))
+		b = self.__all_idx(a, axis=2)
 		print(b)
-		print(b.shape)
+		for c in b:
+			print(len(b))
+		print(np.ndim(b))
 		print('Done2')
 		out[self.__all_idx(a, axis=2)] = 1
 		return out

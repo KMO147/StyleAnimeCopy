@@ -14,7 +14,7 @@ sys.path.append(".")
 sys.path.append("..")
 
 from configs import data_configs
-from datasets.inference_dataset import InferenceDataset, InferenceDataset_enc
+from dataset.inference_dataset import InferenceDataset, InferenceDataset_enc
 from utils.common import tensor2im, log_input_image
 from options.test_options import TestOptions
 #from models.styleAnime import StyleAnime

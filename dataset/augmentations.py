@@ -13,8 +13,6 @@ class ToOneHot(object):
 	def onehot_initialization(self, a):
 		if self.n_classes is None:
 			self.n_classes = len(np.unique(a))
-		import matplotlib.pyplot as plt
-		plt.imshow(a)
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
 		out[self.__all_idx(a, axis=2)] = 1
 		return out

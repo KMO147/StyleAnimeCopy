@@ -13,17 +13,10 @@ class ToOneHot(object):
 	def onehot_initialization(self, a):
 		if self.n_classes is None:
 			self.n_classes = len(np.unique(a))
-		print(a)
-		print(a.shape)
-		print('Done1')
+		print(self.n_classes)
+		print('Done')
 		out = np.zeros(a.shape + (self.n_classes, ), dtype=int)
-		b = self.__all_idx(a, axis=2)
-		print(out)
-		print(out.shape)
-		print('Done2')
-		print(b)
-		print('Done3')
-		out[b] = 1
+		out[self.__all_idx(a, axis=2)] = 1
 		return out
 
 	def __all_idx(self, idx, axis):

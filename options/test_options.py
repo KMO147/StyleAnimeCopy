@@ -11,8 +11,8 @@ class TestOptions:
 		# arguments for inference script
 		self.parser.add_argument('--exp_dir', type=str, help='Path to experiment output directory')
 		self.parser.add_argument('--checkpoint_path', default=None, type=str, help='Path to pSp model checkpoint')
-		self.parser.add_argument('--parsing_data_path', type=str, default='/kaggle/working/StyleAnimeCopy/results/portrait2anime/seg', help='Path to directory of input parsing data')
-		self.parser.add_argument('--image_data_path', type=str, default='/kaggle/working/StyleAnimeCopy/results/portrait2anime/img', help='Path to directory of input reference image data')
+		self.parser.add_argument('--parsing_data_path', type=str, default='results/portrait2anime/seg', help='Path to directory of input parsing data')
+		self.parser.add_argument('--image_data_path', type=str, default='results/portrait2anime/img', help='Path to directory of input reference image data')
 		self.parser.add_argument('--couple_outputs', action='store_true', help='Whether to also save inputs + outputs side-by-side')
 		self.parser.add_argument('--resize_outputs', action='store_true', help='Whether to resize outputs to 256x256 or keep at 1024x1024')
 

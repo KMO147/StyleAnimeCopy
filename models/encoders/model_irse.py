@@ -42,9 +42,6 @@ class Backbone(Module):
 		self.body = Sequential(*modules)
 
 	def forward(self, x):
-		print(x)
-		print(x.shape)
-		print('Done')
 		x = self.input_layer(x)
 		x = self.body(x)
 		x = self.output_layer(x)

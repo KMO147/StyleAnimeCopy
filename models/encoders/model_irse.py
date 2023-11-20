@@ -42,6 +42,7 @@ class Backbone(Module):
 		self.body = Sequential(*modules)
 
 	def forward(self, x):
+		import pdb; pdb.set_trace()
 		x = self.input_layer(x)
 		x = self.body(x)
 		x = self.output_layer(x)

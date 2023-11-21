@@ -346,9 +346,9 @@ class Coach:
 		save_dict = {
 			'epoch' : self.global_step,
 			'state_dict': self.net.state_dict(),
-			'optimizer_state_dict': optimizer.state_dict(),
-    		'optimizer_d_state_dict': optimizer_d.state_dict(),
-    		'optimizer_latent_state_dict': optimizer_latent.state_dict(),
+			'optimizer_state_dict': self.optimizer.state_dict(),
+    		'optimizer_d_state_dict': self.optimizer_d.state_dict(),
+    		'optimizer_latent_state_dict': self.optimizer_latent.state_dict(),
 			'opts': vars(self.opts)
 		}
 		# save the latent avg in state_dict for inference if truncation of w was used during training

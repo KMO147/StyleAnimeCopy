@@ -58,7 +58,7 @@ class TrainOptions:
 		self.parser.add_argument('--resize_factors', type=str, default=None,
 		                         help='For super-res, comma-separated resize factors to use for inference.')
 
-		self.parser.add_argument('--countinue_train', action='store_true', help='Whether to continue to train')
+		self.parser.add_argument('--continue_train', action='store_true', help='Whether to continue to train')
 
 	def parse(self):
 		opts = self.parser.parse_args()

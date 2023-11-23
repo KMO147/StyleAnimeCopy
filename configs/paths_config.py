@@ -1,4 +1,4 @@
-path = '/kaggle/input/dataset'
+path = '/kaggle/input/styleanimedata'
 dataset_paths = {
 	'anime_train_segmentation': path + 'dds/Danbooru-Parsing/anime_seg_train',
 	'anime_test_segmentation': path + 'dds/Danbooru-Parsing/anime_seg_test_68',

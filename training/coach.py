@@ -86,13 +86,13 @@ class Coach:
 			self.opts.save_interval = self.opts.max_steps
 
 		# continue train
-		if self.opts.continue_train:
-			checkpoint = torch.load('output/checkpoints/best_model.pt')
-			self.net.load_state_dict(checkpoint['state_dict'])
-			self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-			self.optimizer_d.load_state_dict(checkpoint['optimizer_d_state_dict'])
-			self.optimizer_latent.load_state_dict(checkpoint['optimizer_latent_state_dict'])
-			self.global_step = checkpoint['epoch']
+		# if self.opts.continue_train:
+		# 	checkpoint = torch.load('output/checkpoints/best_model.pt')
+		# 	self.net.load_state_dict(checkpoint['state_dict'])
+		# 	self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+		# 	self.optimizer_d.load_state_dict(checkpoint['optimizer_d_state_dict'])
+		# 	self.optimizer_latent.load_state_dict(checkpoint['optimizer_latent_state_dict'])
+		# 	self.global_step = checkpoint['epoch']
 
 	def train(self):
 		self.net.train()
@@ -101,7 +101,7 @@ class Coach:
 				
 				x_hm, x, y, x_1, y_1 = batch
 				x_hm, x, y, x_1, y_1 = x_hm.to(self.device).float(), x.to(self.device).float(), y.to(self.device).float(), x_1.to(self.device).float(), y_1.to(self.device).float()
-				
+
 				y_hat, latent = self.net.forward(x,y, return_latents=True)
 				y_hat_1, latent_1 = self.net.forward(x_1, y_1, return_latents=True)
 
@@ -130,7 +130,6 @@ class Coach:
 					self.optimizer_d.zero_grad()
 					d_loss.backward()
 					self.optimizer_d.step()
-				
 
 				y_hat, latent = self.net.forward(x,y, return_latents=True)
 				y_hat_1, latent_1 = self.net.forward(x_1, y_1, return_latents=True)
@@ -344,11 +343,11 @@ class Coach:
 
 	def __get_save_dict(self):
 		save_dict = {
-			'epoch' : self.global_step,
+			#'epoch' : self.global_step,
 			'state_dict': self.net.state_dict(),
-			'optimizer_state_dict': self.optimizer.state_dict(),
-    		'optimizer_d_state_dict': self.optimizer_d.state_dict(),
-    		'optimizer_latent_state_dict': self.optimizer_latent.state_dict(),
+			#'optimizer_state_dict': self.optimizer.state_dict(),
+    		#'optimizer_d_state_dict': self.optimizer_d.state_dict(),
+    		#'optimizer_latent_state_dict': self.optimizer_latent.state_dict(),
 			'opts': vars(self.opts)
 		}
 		# save the latent avg in state_dict for inference if truncation of w was used during training

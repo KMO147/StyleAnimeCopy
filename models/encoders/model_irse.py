@@ -1,5 +1,6 @@
 from torch.nn import Linear, Conv2d, BatchNorm1d, BatchNorm2d, PReLU, Dropout, Sequential, Module
 from models.encoders.helpers import get_blocks, Flatten, bottleneck_IR, bottleneck_IR_SE, l2_norm
+import torch
 
 """
 Modified Backbone implementation from [TreB1eN](https://github.com/TreB1eN/InsightFace_Pytorch)
@@ -16,7 +17,7 @@ class Backbone(Module):
 		if mode == 'ir':
 			unit_module = bottleneck_IR
 		elif mode == 'ir_se':
-			unit_module = bottleneck_IR_SE
+			unit_module = bottleneck_IR_SE					  
 		self.input_layer = Sequential(Conv2d(3, 64, (3, 3), 1, 1, bias=False),
 									  BatchNorm2d(64),
 									  PReLU(64))

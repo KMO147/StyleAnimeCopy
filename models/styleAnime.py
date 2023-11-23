@@ -116,5 +116,5 @@ class StyleAnime(nn.Module):
 
     
     def __load_latent_avg(self, opts):
-        latents = torch.load('./pretrained_models/latent_avg.pt')
+        latents = torch.load('/kaggle/input/styleanimedata/pretrained_models/latent_avg.pt')
         self.latent_avg = latents[:, 0, :].squeeze()

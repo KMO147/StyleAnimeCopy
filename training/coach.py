@@ -86,9 +86,9 @@ class Coach:
 			self.opts.save_interval = self.opts.max_steps
 
 		# continue train
-		# if self.opts.continue_train:
-		# 	checkpoint = torch.load('output/checkpoints/best_model.pt')
-		# 	self.net.load_state_dict(checkpoint['state_dict'])
+		if self.opts.continue_train:
+		 	checkpoint = torch.load('best_model.pt')
+		 	self.net.load_state_dict(checkpoint['state_dict'])
 		# 	self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 		# 	self.optimizer_d.load_state_dict(checkpoint['optimizer_d_state_dict'])
 		# 	self.optimizer_latent.load_state_dict(checkpoint['optimizer_latent_state_dict'])
